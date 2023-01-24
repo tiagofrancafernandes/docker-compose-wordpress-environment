@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  wordpress:
+    image: "wordpress:${WP_VERSION:-latest}"
+    ports:
+      - "${FORWARD_HTTP_PORT:-8000}:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST:
+      WORDPRESS_DB_USER:
+      WORDPRESS_DB_PASSWORD:
+      WORDPRESS_DB_NAME:
+    volumes:
+      - "${WORDPRESS_SITE_PATH:-./}:/var/www/html"
+      - "${ADITIONAL_PATH:-./}:/var/www/aditional-path"

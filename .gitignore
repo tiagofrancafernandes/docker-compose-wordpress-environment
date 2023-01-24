@@ -1,0 +1,5 @@
+site
+my-wp-path
+.env
+*.log
+*/*.log
